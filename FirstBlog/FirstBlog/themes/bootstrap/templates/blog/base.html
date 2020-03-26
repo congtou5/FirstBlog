@@ -24,8 +24,8 @@
                         </li>
                     {% endfor %}
                     </ul>
-                    <form class="form-inline my-2 my-lg-0" method='GET'>
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" arial-label="Search">
+                    <form class="form-inline my-2 my-lg-0" action='/search/' method='GET'>
+                        <input class="form-control mr-sm-2" type="search" name="keyword" placeholder="Search" arial-label="Search" value="{{ keyword }}">
                         <button class="btn btn-outline-success" type="submit">搜索</button>
                     </form>
                 </div>
@@ -36,8 +36,13 @@
             </div>
         </div>
         <div class="container main">
-            <div clas="row">
+            <div class="row">
                 <div class="col-9 post-list">
+                {% block extra_head %}
+                <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/googlecode.min.css">
+                <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+                <script>hljs.initHighlightingOnLoad();</script>
+                {% endblock extra_head %}}
                 {% block main %}
                 {% endblock %}
                 </div>
